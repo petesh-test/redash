@@ -296,6 +296,10 @@ class Parameters {
   }
 
   toUrlParams() {
+    if (this.get().length === 0) {
+      return '';
+    }
+
     const params = Object.assign(...this.get().map(p => p.toUrlParams()));
     return Object
       .keys(params)
@@ -335,11 +339,6 @@ function QueryResultErrorFactory($q) {
 
     // eslint-disable-next-line class-methods-use-this
     getLog() {
-      return null;
-    }
-
-    // eslint-disable-next-line class-methods-use-this
-    getChartData() {
       return null;
     }
   }
